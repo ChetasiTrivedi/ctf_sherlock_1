@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Speckled Band - Advanced CTF Challenge</title>
+  <style>
+    body {
+      background: #f4f4f4;
+      font-family: Arial, sans-serif;
+      padding: 50px;
+      color: #333;
+    }
+    h1 {
+      color: #444;
+      text-align: center;
+    }
+    .riddle-container {
+      text-align: center;
+      font-size: 1.2rem;
+      margin-top: 50px;
+    }
+    .output, .next-clue {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 1.5rem;
+      background: #222;
+      color: white;
+      padding: 20px;
+      display: none;
+    }
+    .feedback {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 1.2rem;
+      color: #d9534f;
+    }
+    .default-message {
+      text-align: center;
+      font-size: 1.2rem;
+      margin-top: 50px;
+      color: #555;
+    }
+    .hint-message {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 1.2rem;
+      color: #007bff;
+    }
+  </style>
+</head>
+<body>
+  <h1>The Speckled Band Advanced CTF Challenge</h1>
+  
+  <!-- Riddle Section -->
+  <div class="riddle-container">
+    <p><strong>Riddle:</strong></p>
+    <p><i>"I am a box that holds clues, but you can never see the boundaries unless you look closely. I can change my appearance depending on my surroundings, yet I remain in my place. What am I?"</i></p>
+  </div>
+  
+  <div class="output" id="flag-output">
+    <p>Excellent! You solved the first part of the puzzle. Your next clue lies in the image below. Analyze it carefully to find the hidden code.</p>
+    <img src="final.jpg" alt="Hidden Clue" style="margin-top: 20px; width: 300px; height: auto;">
+    <p class="hint-message" id="hint-message">Look closely at the image! It's not just what it seems.</p>
+  </div>
+
+  <div class="next-clue" id="next-output">
+    <p></strong></p>
+  </div>
+
+  <div class="feedback" id="feedback-message">
+    <!-- Feedback for incorrect answers will appear here -->
+  </div>
+  
+  <div class="default-message">
+    <p>The case is still unsolved. You must deduce the answer logically.</p>
+  </div>
+
+  <script>
+    // Variable 'a' set to 'incorrect' initially
+    var a = 'incorrect';
+
+    // Obfuscated correct answer (base64 encoded 'div')
+    const encodedAnswer = atob('ZGl2'); // Decodes to 'div'
+
+    // Global function to check the user's answer
+    function checkAnswer() {
+      if (a.toLowerCase() === encodedAnswer) {
+        document.getElementById('flag-output').style.display = 'block';
+        document.querySelector('.default-message').style.display = 'none'; // Hide default message when the clue is shown
+        document.getElementById('feedback-message').textContent = ''; // Clear any previous feedback
+      } else {
+        // Display a hint message on the page for incorrect answers
+        document.getElementById('feedback-message').textContent = 
+          "Not quite, detective! Clues are like hidden elements; sometimes, you have to look deeper into the structure.";
+      }
+    }
+
+   
+
+    
+  
+
+    
+  </script>
+
+  <footer style="text-align: center; margin-top: 50px;">
+    <p>&copy; 2024 Sherlock Holmes CTF Challenge. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>
